@@ -1,0 +1,9 @@
+<!--miniprogram/pages/manage/manage.wxml-->
+
+<view class='content'>
+<block wx:for="{{lists}}">
+  <view class='massage'>{{item.massage}}</view>
+  
+</block>
+<view class='massage'>{{time}}</view>
+  </view>

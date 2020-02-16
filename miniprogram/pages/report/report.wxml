@@ -1,0 +1,109 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="head_title">基本信息</view>
+  <view class="section_info">
+    <view class="section_container">
+      <view class="section__title">姓名:</view>
+      <view>
+        <input class="weui-input" name="txtname" type="text" placeholder="  输入姓名" />
+      </view>
+    </view>
+    <view class="section_container">
+      <view class="section__title">身份证号码:</view>
+      <view>
+        <input class="weui-input" name="idcard" type="idcard" placeholder="  身份证" />
+      </view>
+    </view>
+    <view class="section_container">
+      <view class="section__title">性别:</view>
+      <picker name="sex" bindchange="bindSexChange" value="  {{sexindex}}" range="  {{sexArray}}">
+        <view class="picker">
+          {{sexArray[sexindex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section_container">
+      <view class="section__title">联系电话:</view>
+      <view>
+        <input class="weui-input" type="number" name="contact" placeholder="" />
+      </view>
+    </view>
+    <view class="section_container">
+      <view class="section__title">家庭成员数量:</view>
+      <view>
+        <input class="weui-input" type="number" name="familynumbers" placeholder="  请输入数字" />
+      </view>
+    </view>
+
+  </view>
+
+
+
+  <view class="head_title">居住地址信息</view>
+  <view class="section_info">
+
+    <view class="section_container">
+      <view class="section__title">住户性质:</view>
+      <picker name="addType" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="section_container">
+      <view class="section__title">居住地:</view>
+      <picker name="addr" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section_container">
+      <i-panel title="无标题输入框">
+        <i-input value="{{ value5 }}" class="weui-input" type="text" name="address" placeholder="请输入详细地址" />
+      </i-panel>
+    </view>
+
+  </view>
+  <view class="head_title">健康状态</view>
+  <view class="section_info_state">
+    <view class="section_container_state">
+      <view class="section__title">症状:</view>
+
+      <checkbox-group bindchange="checkboxChange" name="chkstate">
+        <label class="checkbox" wx:for="{{statusItems}}" wx:key="key">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+
+
+
+    </view>
+    <view class="section_container">
+      <view class="section__title">体温:</view>
+      <input class="weui-input" type="number" name="temperature" placeholder="请输入体温" />
+    </view>
+  </view>
+
+  <view class="head_title">出行记录</view>
+  <view class="section_info">
+    <view class="section_container">
+      <textarea class="section__title" placeholder="是否有出行:" bindblur="bindOutRecord" />
+    </view>
+  </view>
+
+
+  <view class="head_title">接触史</view>
+  <view class="section_info">
+    <view class="section_container">
+       <textarea class="section__title" placeholder="接触类型：" bindblur="bindTouchKind" />
+    </view>
+  </view>
+
+  <view class="btn-area">
+    <button class="text_submit_style" formType="submit">提交</button>
+
+  </view>
+</form>
